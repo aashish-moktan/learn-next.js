@@ -1,11 +1,17 @@
+import { notFound } from "next/navigation";
+
 export default function ProductReview({
   params,
 }: {
   params: {
-    productId: string;
-    reviewId: string;
+    productId: number;
+    reviewId: number;
   };
 }) {
+  if (params.reviewId > 1000) {
+    return notFound();
+  }
+
   return (
     <div>
       <h2>This is product id {params.productId}</h2>
